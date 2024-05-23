@@ -1,19 +1,32 @@
 import React from 'react';
+import { Menu } from 'antd';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <nav>
-      <ul>
-        <li><Link to="/donation">Donation</Link></li>
-        <li><Link to="/marathon">Marathon</Link></li>
-        <li><Link to="/performance">Performance</Link></li>
-        <li><Link to="/result">Result</Link></li>
-        <li><Link to="/runner">Runner</Link></li>
-        <li><Link to="/sponsor">Sponsor</Link></li>
-        <li><Link to="/users">Users</Link></li>
-      </ul>
-    </nav>
+    <Menu mode="horizontal">
+      <Menu.Item key="donation">
+        <Link to="/donation">Donation</Link>
+      </Menu.Item>
+      <Menu.Item key="marathon">
+        <Link to="/marathon">Marathon</Link>
+      </Menu.Item>
+      <Menu.Item key="performance">
+        <Link to="/performance">Performance</Link>
+      </Menu.Item>
+      <Menu.Item key="result">
+        <Link to="/result">Result</Link>
+      </Menu.Item>
+      <Menu.Item key="runner">
+        <Link to="/runner">Runner</Link>
+      </Menu.Item>
+      <Menu.Item key="sponsor">
+        <Link to="/sponsor">Sponsor</Link>
+      </Menu.Item>
+      <Menu.Item key="users">
+        <Link to="/users">Users</Link>
+      </Menu.Item>
+    </Menu>
   );
 };
 

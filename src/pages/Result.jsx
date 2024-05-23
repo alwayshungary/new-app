@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import SearchBar from '../components/SearchBar';
+import { Table, Input } from 'antd';
 
-const Result = ({ searchQuery }) => {
+const { Search } = Input;
+
+const Result = () => {
   const [filteredData, setFilteredData] = useState([]);
   const data = [
     { id: 1, performanceId: 1, position: 1, prize: 'Gold Medal' },
     { id: 2, performanceId: 2, position: 2, prize: 'Silver Medal' },
+    // Add more data here
   ];
 
   const handleSearch = (query) => {
@@ -17,30 +20,18 @@ const Result = ({ searchQuery }) => {
     setFilteredData(filtered);
   };
 
+  const columns = [
+    { title: 'ID', dataIndex: 'id', key: 'id' },
+    { title: 'Performance ID', dataIndex: 'performanceId', key: 'performanceId' },
+    { title: 'Position', dataIndex: 'position', key: 'position' },
+    { title: 'Prize', dataIndex: 'prize', key: 'prize' },
+  ];
+
   return (
     <div>
       <h1>Result Table</h1>
-      <SearchBar placeholder="Search by performance ID, position, or prize" onSearch={handleSearch} />
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Performance ID</th>
-            <th>Position</th>
-            <th>Prize</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredData.map(item => (
-            <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.performanceId}</td>
-              <td>{item.position}</td>
-              <td>{item.prize}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <Search placeholder="Search by performance ID, position, or prize" onSearch={handleSearch} enterButton />
+      <Table dataSource={filteredData} columns={columns} rowKey="id" />
     </div>
   );
 };

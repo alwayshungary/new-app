@@ -1,6 +1,7 @@
 // src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import 'antd/dist/reset.css'
 import Navbar from './components/Navbar';
 import Donation from './pages/Donation';
 import Marathon from './pages/Marathon';

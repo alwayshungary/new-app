@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import SearchBar from '../components/SearchBar';
+import { Table, Input } from 'antd';
 
-const Users = ({ searchQuery }) => {
+const { Search } = Input;
+
+const Users = () => {
   const [filteredData, setFilteredData] = useState([]);
   const data = [
     { id: 1, username: 'johndoe', email: 'john@example.com', role: 'Admin' },
     { id: 2, username: 'janesmith', email: 'jane@example.com', role: 'User' },
+    // Add more data here
   ];
 
   const handleSearch = (query) => {
@@ -17,30 +20,18 @@ const Users = ({ searchQuery }) => {
     setFilteredData(filtered);
   };
 
+  const columns = [
+    { title: 'ID', dataIndex: 'id', key: 'id' },
+    { title: 'Username', dataIndex: 'username', key: 'username' },
+    { title: 'Email', dataIndex: 'email', key: 'email' },
+    { title: 'Role', dataIndex: 'role', key: 'role' },
+  ];
+
   return (
     <div>
       <h1>Users Table</h1>
-      <SearchBar placeholder="Search by username, email, or role" onSearch={handleSearch} />
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Username</th>
-            <th>Email</th>
-            <th>Role</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredData.map(item => (
-            <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.username}</td>
-              <td>{item.email}</td>
-              <td>{item.role}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <Search placeholder="Search by username, email, or role" onSearch={handleSearch} enterButton />
+      <Table dataSource={filteredData} columns={columns} rowKey="id" />
     </div>
   );
 };

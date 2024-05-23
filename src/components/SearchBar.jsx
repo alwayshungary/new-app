@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
+import { Input } from 'antd';
 
-const SearchBar = ({ placeholder, data, onSearch }) => {
+const { Search } = Input;
+
+const SearchBar = ({ placeholder, onSearch }) => {
   const [query, setQuery] = useState('');
 
-  const handleInputChange = (e) => {
-    const value = e.target.value;
+  const handleSearch = (value) => {
     setQuery(value);
     onSearch(value);
   };
 
   return (
     <div className="search-bar">
-      <input
-        type="text"
+      <Search
         placeholder={placeholder}
         value={query}
-        onChange={handleInputChange}
+        onChange={(e) => handleSearch(e.target.value)}
+        enterButton
       />
     </div>
   );

@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import SearchBar from '../components/SearchBar';
+import { Table, Input } from 'antd';
 
-const Sponsor = ({ searchQuery }) => {
+const { Search } = Input;
+
+const Sponsor = () => {
   const [filteredData, setFilteredData] = useState([]);
   const data = [
     { id: 1, name: 'Company A', donationAmount: 1000, marathonId: 1 },
     { id: 2, name: 'Company B', donationAmount: 2000, marathonId: 2 },
+    // Add more data here
   ];
 
   const handleSearch = (query) => {
@@ -17,30 +20,18 @@ const Sponsor = ({ searchQuery }) => {
     setFilteredData(filtered);
   };
 
+  const columns = [
+    { title: 'ID', dataIndex: 'id', key: 'id' },
+    { title: 'Name', dataIndex: 'name', key: 'name' },
+    { title: 'Donation Amount', dataIndex: 'donationAmount', key: 'donationAmount' },
+    { title: 'Marathon ID', dataIndex: 'marathonId', key: 'marathonId' },
+  ];
+
   return (
     <div>
       <h1>Sponsor Table</h1>
-      <SearchBar placeholder="Search by name, donation amount, or marathon ID" onSearch={handleSearch} />
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Donation Amount</th>
-            <th>Marathon ID</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredData.map(item => (
-            <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.name}</td>
-              <td>{item.donationAmount}</td>
-              <td>{item.marathonId}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <Search placeholder="Search by name, donation amount, or marathon ID" onSearch={handleSearch} enterButton />
+      <Table dataSource={filteredData} columns={columns} rowKey="id" />
     </div>
   );
 };
