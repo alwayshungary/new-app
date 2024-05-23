@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <Menu mode="horizontal">
+    <Menu mode="horizontal" theme="dark">
       <Menu.Item key="donation">
         <Link to="/donation">Donation</Link>
       </Menu.Item>

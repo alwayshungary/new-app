@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Table, Input } from 'antd';
-
-const { Search } = Input;
+import { Table } from 'antd';
+import SearchBar from '../components/SearchBar';
+import './Page.css';
 
 const Donation = () => {
   const [filteredData, setFilteredData] = useState([]);
@@ -26,9 +26,9 @@ const Donation = () => {
   ];
 
   return (
-    <div>
+    <div className="page-container">
       <h1>Donation Table</h1>
-      <Search placeholder="Search by donor" onSearch={handleSearch} enterButton />
+      <SearchBar placeholder="Search by donor" onSearch={handleSearch} />
       <Table dataSource={filteredData} columns={columns} rowKey="id" />
     </div>
   );
