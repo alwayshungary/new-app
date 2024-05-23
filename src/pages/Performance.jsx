@@ -8,7 +8,6 @@ const Performance = () => {
   const data = [
     { id: 1, runnerId: 1, marathonId: 1, time: '3:45:00' },
     { id: 2, runnerId: 2, marathonId: 2, time: '4:00:00' },
-    // Add more data here
   ];
 
   const handleSearch = (query) => {
