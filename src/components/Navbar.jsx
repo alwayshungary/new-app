@@ -2,13 +2,15 @@ import React from 'react';
 import { Menu } from 'antd';
 import { Link } from 'react-router-dom';
 import marathonLogo from '../assets/marathon.jpeg';
-
+import './App.css'; // Import the main CSS file
 
 const Navbar = () => {
   return (
-    <Menu mode="horizontal" theme="dark">
-      <Menu.Item key="logo" disabled>
-        <img src={marathonLogo} className="logo" alt="Marathon Logo" />
+    <Menu mode="horizontal" theme="dark" className="navbar-menu">
+      <Menu.Item key="logo" className="logo-item" disabled>
+        <Link to="/">
+          <img src={marathonLogo} className="logo" alt="Marathon Logo" />
+        </Link>
       </Menu.Item>
       <Menu.Item key="donation">
         <Link to="/donation">Donation</Link>
@@ -36,4 +38,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 
