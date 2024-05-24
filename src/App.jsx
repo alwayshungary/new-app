@@ -37,23 +37,4 @@ const App = () => {
 };
 
 export default App;
-const Navbar = () => {
-  return (
-    <div className="navbar">
-      <Link to="/">
-        <img src={marathonLogo} className="logo" alt="Marathon Logo" />
-      </Link>
-      <nav>
-        <ul>
-          <li><Link to="/donation">Donation</Link></li>
-          <li><Link to="/marathon">Marathon</Link></li>
-          <li><Link to="/performance">Performance</Link></li>
-          <li><Link to="/result">Result</Link></li>
-          <li><Link to="/runner">Runner</Link></li>
-          <li><Link to="/sponsor">Sponsor</Link></li>
-          <li><Link to="/users">Users</Link></li>
-        </ul>
-      </nav>
-    </div>
-  );
-};
+
