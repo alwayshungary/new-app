@@ -2,7 +2,7 @@ import React from 'react';
 import { Menu } from 'antd';
 import { Link } from 'react-router-dom';
 import marathonLogo from '../assets/marathon.jpeg';
-import './App.css'; // Import the main CSS file
+//import './App.css'; // Import the main CSS file
 
 const Navbar = () => {
   return (
